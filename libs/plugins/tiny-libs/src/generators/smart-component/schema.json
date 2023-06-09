@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "Smart",
+  "$id": "SmartComponent",
   "title": "",
   "type": "object",
   "properties": {

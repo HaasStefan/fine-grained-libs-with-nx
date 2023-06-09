@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "Dumb",
+  "$id": "DumbComponent",
   "title": "",
   "type": "object",
   "properties": {

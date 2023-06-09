@@ -5,12 +5,9 @@ import {
   Tree,
 } from '@nx/devkit';
 import * as path from 'path';
-import { SmartGeneratorSchema } from './schema';
+import { DumbComponentGeneratorSchema } from './schema';
 
-export async function smartGenerator(
-  tree: Tree,
-  options: SmartGeneratorSchema
-) {
+export async function dumbComponentGenerator(tree: Tree, options: DumbComponentGeneratorSchema) {
   const projectRoot = `libs/${options.name}`;
   addProjectConfiguration(tree, options.name, {
     root: projectRoot,
@@ -22,4 +19,4 @@ export async function smartGenerator(
   await formatFiles(tree);
 }
 
-export default smartGenerator;
+export default dumbComponentGenerator;

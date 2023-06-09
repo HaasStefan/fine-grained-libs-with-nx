@@ -13,8 +13,41 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:data-service",
+                "onlyDependOnLibsWithTags": ["type:model"]
+              },
+              {
+                "sourceTag": "type:facade",
+                "onlyDependOnLibsWithTags": [
+                  "type:data-service",
+                  "type:model",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "type:service",
+                "onlyDependOnLibsWithTags": ["type:model", "type:util"]
+              },
+              {
+                "sourceTag": "type:smart-component",
+                "onlyDependOnLibsWithTags": [
+                  "type:dumb-component",
+                  "type:pipe",
+                  "type:directive",
+                  "type:service",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "type:dumb-component",
+                "onlyDependOnLibsWithTags": [
+                  "type:model",
+                  "type:directive",
+                  "type:pipe",
+                  "type:util",
+                  "type:service",
+                  "type:dumb-component"
+                ]
               }
             ]
           }

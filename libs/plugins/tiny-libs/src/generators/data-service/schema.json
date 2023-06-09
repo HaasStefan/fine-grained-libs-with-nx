@@ -12,6 +12,10 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use?"
+    },
+    "directory": {
+      "type": "string",
+      "description": ""
     }
   },
   "required": ["name"]

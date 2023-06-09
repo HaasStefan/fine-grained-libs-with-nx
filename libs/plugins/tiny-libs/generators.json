@@ -1,13 +1,13 @@
 {
   "generators": {
-    "smart": {
-      "factory": "./src/generators/smart/generator",
-      "schema": "./src/generators/smart/schema.json",
+    "smart-component": {
+      "factory": "./src/generators/smart-component/generator",
+      "schema": "./src/generators/smart-component/schema.json",
       "description": "smart generator"
     },
-    "dumb": {
-      "factory": "./src/generators/dumb/generator",
-      "schema": "./src/generators/dumb/schema.json",
+    "dumb-component": {
+      "factory": "./src/generators/dumb-component/generator",
+      "schema": "./src/generators/dumb-component/schema.json",
       "description": "dumb generator"
     },
     "pipe": {
