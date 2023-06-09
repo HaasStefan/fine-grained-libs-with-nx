@@ -1,0 +1,54 @@
+{
+  "generators": {
+    "smart": {
+      "factory": "./src/generators/smart/generator",
+      "schema": "./src/generators/smart/schema.json",
+      "description": "smart generator"
+    },
+    "dumb": {
+      "factory": "./src/generators/dumb/generator",
+      "schema": "./src/generators/dumb/schema.json",
+      "description": "dumb generator"
+    },
+    "pipe": {
+      "factory": "./src/generators/pipe/generator",
+      "schema": "./src/generators/pipe/schema.json",
+      "description": "pipe generator"
+    },
+    "directive": {
+      "factory": "./src/generators/directive/generator",
+      "schema": "./src/generators/directive/schema.json",
+      "description": "directive generator"
+    },
+    "facade": {
+      "factory": "./src/generators/facade/generator",
+      "schema": "./src/generators/facade/schema.json",
+      "description": "facade generator"
+    },
+    "data-service": {
+      "factory": "./src/generators/data-service/generator",
+      "schema": "./src/generators/data-service/schema.json",
+      "description": "data-service generator"
+    },
+    "service": {
+      "factory": "./src/generators/service/generator",
+      "schema": "./src/generators/service/schema.json",
+      "description": "service generator"
+    },
+    "model": {
+      "factory": "./src/generators/model/generator",
+      "schema": "./src/generators/model/schema.json",
+      "description": "model generator"
+    },
+    "util": {
+      "factory": "./src/generators/util/generator",
+      "schema": "./src/generators/util/schema.json",
+      "description": "util generator"
+    },
+    "route": {
+      "factory": "./src/generators/route/generator",
+      "schema": "./src/generators/route/schema.json",
+      "description": "route generator"
+    }
+  }
+}
