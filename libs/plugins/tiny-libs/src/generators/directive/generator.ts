@@ -1,24 +1,32 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  Tree,
-} from '@nx/devkit';
-import * as path from 'path';
+import { formatFiles, names, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/angular/generators';
 import { DirectiveGeneratorSchema } from './schema';
+import { normalizeOptions } from '../../utils/normalize-options';
+import { addFiles } from '../../utils/add-files';
+import { firstLetterLowerCase } from '../../utils/first-letter-lowercase';
 
 export async function directiveGenerator(
   tree: Tree,
   options: DirectiveGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+  const normalizedOptions = normalizeOptions({
+    tree,
+    options,
+    tags: ['type:directive'],
+    directoryContainer: 'directives',
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+
+  await libraryGenerator(tree, {
+    name: normalizedOptions.name,
+    directory: normalizedOptions.directory,
+    tags: normalizedOptions.parsedTags.join(','),
+    skipModule: true,
+  });
+
+  addFiles(tree, normalizedOptions, __dirname, {
+    workspaceSelector: firstLetterLowerCase(names(normalizedOptions.npmScope).className)
+  });
+
   await formatFiles(tree);
 }
 

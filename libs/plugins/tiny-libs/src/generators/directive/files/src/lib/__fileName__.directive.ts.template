@@ -1,0 +1,9 @@
+import { Directive } from '@angular/core';
+
+@Directive({
+  selector: '[<%=workspaceSelector%><%=className%>]',
+  standalone: true,
+})
+export class <%=className%>Directive {
+  constructor() {}
+}
