@@ -1,24 +1,32 @@
+import { libraryGenerator } from '@nx/angular/generators';
 import {
-  addProjectConfiguration,
   formatFiles,
-  generateFiles,
   Tree,
 } from '@nx/devkit';
-import * as path from 'path';
+import { addFiles } from '../../utils/add-files';
+import { normalizeOptions } from '../../utils/normalize-options';
 import { FacadeGeneratorSchema } from './schema';
 
 export async function facadeGenerator(
   tree: Tree,
   options: FacadeGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+  const normalizedOptions = normalizeOptions({
+    tree,
+    options,
+    tags: ['type:facade'],
+    directoryContainer: 'facades',
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+
+  await libraryGenerator(tree, {
+    name: normalizedOptions.name,
+    directory: normalizedOptions.directory,
+    tags: normalizedOptions.parsedTags.join(','),
+    skipModule: true,
+  });
+
+  addFiles(tree, normalizedOptions, __dirname);
+
   await formatFiles(tree);
 }
 
