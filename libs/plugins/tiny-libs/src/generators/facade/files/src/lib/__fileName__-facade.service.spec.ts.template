@@ -1,0 +1,21 @@
+import { TestBed } from '@angular/core/testing';
+import { provide<%=className%>FacadeService } from './<%=fileName%>-facade.service';
+
+import { <%=className%>FacadeService } from './<%=fileName%>-facade.service';
+
+describe('<%=className%>FacadeService', () => {
+  let service: <%=className%>FacadeService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provide<%=className%>FacadeService()
+      ]
+    });
+    service = TestBed.inject(<%=className%>FacadeService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

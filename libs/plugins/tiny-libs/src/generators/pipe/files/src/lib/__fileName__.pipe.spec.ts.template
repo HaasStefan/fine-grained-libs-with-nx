@@ -1,0 +1,8 @@
+import { <%=className%>Pipe } from './<%=fileName%>.pipe';
+
+describe('<%=className%>Pipe', () => {
+  it('create an instance', () => {
+    const pipe = new <%=className%>Pipe();
+    expect(pipe).toBeTruthy();
+  });
+});

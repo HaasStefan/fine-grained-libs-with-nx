@@ -9,7 +9,7 @@ const initialState: Readonly<State> = {
 };
 
 type FactoryFn = () => Provider[];
-export const provideFacadeService = (
+export const provide<%=className%>FacadeService = (
   factory: FactoryFn = () => [<%=className%>FacadeService]
 ): Provider[] => [
   {

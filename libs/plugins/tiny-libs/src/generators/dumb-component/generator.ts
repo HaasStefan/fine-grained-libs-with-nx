@@ -1,21 +1,34 @@
+import { libraryGenerator } from '@nx/angular/generators';
 import {
-  addProjectConfiguration,
   formatFiles,
-  generateFiles,
+  names,
   Tree,
 } from '@nx/devkit';
-import * as path from 'path';
+import { addFiles } from '../../utils/add-files';
+import { normalizeOptions } from '../../utils/normalize-options';
 import { DumbComponentGeneratorSchema } from './schema';
 
 export async function dumbComponentGenerator(tree: Tree, options: DumbComponentGeneratorSchema) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+  const normalizedOptions = normalizeOptions({
+    tree,
+    options,
+    tags: ['type:dumb-component'],
+    directoryContainer: 'dumb-components',
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+
+  await libraryGenerator(tree, {
+    name: normalizedOptions.name,
+    directory: normalizedOptions.directory,
+    tags: normalizedOptions.parsedTags.join(','),
+    skipModule: true,
+  });
+
+  addFiles(tree, normalizedOptions, __dirname, {
+    componentSelector: `${normalizedOptions.npmScope}-${
+      names(normalizedOptions.name).fileName
+    }`,
+  });
+
   await formatFiles(tree);
 }
 

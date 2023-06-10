@@ -1,24 +1,32 @@
+import { libraryGenerator } from '@nx/angular/generators';
 import {
-  addProjectConfiguration,
   formatFiles,
-  generateFiles,
   Tree,
 } from '@nx/devkit';
-import * as path from 'path';
+import { addFiles } from '../../utils/add-files';
+import { normalizeOptions } from '../../utils/normalize-options';
 import { ModelGeneratorSchema } from './schema';
 
 export async function modelGenerator(
   tree: Tree,
   options: ModelGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
+  const normalizedOptions = normalizeOptions({
+    tree,
+    options,
+    tags: ['type:model'],
+    directoryContainer: 'models',
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+
+  await libraryGenerator(tree, {
+    name: normalizedOptions.name,
+    directory: normalizedOptions.directory,
+    tags: normalizedOptions.parsedTags.join(','),
+    skipModule: true,
+  });
+
+  addFiles(tree, normalizedOptions, __dirname);
+
   await formatFiles(tree);
 }
 

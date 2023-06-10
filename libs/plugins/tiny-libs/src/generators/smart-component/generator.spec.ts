@@ -1,7 +1,7 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
-import { smartGenerator } from './generator';
+import { smartComponentGenerator } from './generator';
 import { SmartComponentGeneratorSchema } from './schema';
 
 describe('smart generator', () => {
@@ -13,7 +13,7 @@ describe('smart generator', () => {
   });
 
   it('should run successfully', async () => {
-    await smartGenerator(tree, options);
+    await smartComponentGenerator(tree, options);
     const config = readProjectConfiguration(tree, 'test');
     expect(config).toBeDefined();
   });

@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: '<%=componentSelector%>',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './<%=fileName%>.component.html',
+  styleUrls: ['./<%=fileName%>.component.scss']
+})
+export class <%=className%>Component {}
