@@ -1,22 +1,25 @@
 {
   "name": "star-wars",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "ng-example",
-  "sourceRoot": "star-wars/src",
+  "sourceRoot": "apps/star-wars/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/star-wars",
-        "index": "star-wars/src/index.html",
-        "main": "star-wars/src/main.ts",
+        "outputPath": "dist/apps/star-wars",
+        "index": "apps/star-wars/src/index.html",
+        "main": "apps/star-wars/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "star-wars/tsconfig.app.json",
-        "assets": ["star-wars/src/favicon.ico", "star-wars/src/assets"],
-        "styles": ["star-wars/src/styles.scss"],
+        "tsConfig": "apps/star-wars/tsconfig.app.json",
+        "assets": [
+          "apps/star-wars/src/favicon.ico",
+          "apps/star-wars/src/assets"
+        ],
+        "styles": ["apps/star-wars/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -68,14 +71,17 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["star-wars/**/*.ts", "star-wars/**/*.html"]
+        "lintFilePatterns": [
+          "apps/star-wars/**/*.ts",
+          "apps/star-wars/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "star-wars/jest.config.ts",
+        "jestConfig": "apps/star-wars/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

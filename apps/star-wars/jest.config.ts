@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
   displayName: 'star-wars',
-  preset: '../jest.preset.js',
+  preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../coverage/star-wars',
+  coverageDirectory: '../../coverage/apps/star-wars',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
