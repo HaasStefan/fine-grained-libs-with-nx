@@ -11,6 +11,7 @@ export interface NormalizedSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  originalDirectory?: string;
   parsedTags: string[];
   npmScope: string;
 }
@@ -29,6 +30,7 @@ export function normalizeOptions<
   directoryContainer: string;
 }): NormalizedSchema & T {
   const name = names(options.name).fileName;
+  const originalDirectory = options.directory;
   options.directory = options.directory
     ? `${options.directory}/${directoryContainer}`
     : directoryContainer;
@@ -41,6 +43,7 @@ export function normalizeOptions<
 
   return {
     ...options,
+    originalDirectory,
     projectName,
     projectRoot,
     projectDirectory,

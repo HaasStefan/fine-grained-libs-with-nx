@@ -11,7 +11,7 @@ export async function utilGenerator(tree: Tree, options: UtilGeneratorSchema) {
   const normalizedOptions = normalizeOptions({
     tree,
     options,
-    tags: ['type:utils'],
+    tags: ['type:util'],
     directoryContainer: 'utils',
   });
 
@@ -20,6 +20,7 @@ export async function utilGenerator(tree: Tree, options: UtilGeneratorSchema) {
     directory: normalizedOptions.directory,
     tags: normalizedOptions.parsedTags.join(','),
     skipModule: true,
+    buildable: true
   });
 
   addFiles(tree, normalizedOptions, __dirname);

@@ -21,10 +21,17 @@ export async function directiveGenerator(
     directory: normalizedOptions.directory,
     tags: normalizedOptions.parsedTags.join(','),
     skipModule: true,
+    buildable: true,
   });
 
   addFiles(tree, normalizedOptions, __dirname, {
-    workspaceSelector: firstLetterLowerCase(names(normalizedOptions.npmScope).className)
+    directiveSelector: normalizedOptions.originalDirectory
+      ? `${firstLetterLowerCase(names(normalizedOptions.npmScope).className)}${
+          names(normalizedOptions.originalDirectory.replace('/', '-')).className
+        }${firstLetterLowerCase(names(normalizedOptions.npmScope).className)}`
+      : `${firstLetterLowerCase(
+          names(normalizedOptions.npmScope).className
+        )}${firstLetterLowerCase(names(normalizedOptions.npmScope).className)}`,
   });
 
   await formatFiles(tree);

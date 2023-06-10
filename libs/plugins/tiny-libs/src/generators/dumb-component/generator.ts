@@ -1,14 +1,13 @@
 import { libraryGenerator } from '@nx/angular/generators';
-import {
-  formatFiles,
-  names,
-  Tree,
-} from '@nx/devkit';
+import { formatFiles, names, Tree } from '@nx/devkit';
 import { addFiles } from '../../utils/add-files';
 import { normalizeOptions } from '../../utils/normalize-options';
 import { DumbComponentGeneratorSchema } from './schema';
 
-export async function dumbComponentGenerator(tree: Tree, options: DumbComponentGeneratorSchema) {
+export async function dumbComponentGenerator(
+  tree: Tree,
+  options: DumbComponentGeneratorSchema
+) {
   const normalizedOptions = normalizeOptions({
     tree,
     options,
@@ -21,12 +20,17 @@ export async function dumbComponentGenerator(tree: Tree, options: DumbComponentG
     directory: normalizedOptions.directory,
     tags: normalizedOptions.parsedTags.join(','),
     skipModule: true,
+    buildable: true,
   });
 
   addFiles(tree, normalizedOptions, __dirname, {
-    componentSelector: `${normalizedOptions.npmScope}-${
-      names(normalizedOptions.name).fileName
-    }`,
+    componentSelector: normalizedOptions.originalDirectory
+      ? `${normalizedOptions.npmScope}-${normalizedOptions.originalDirectory.replace('/', '-')}-${
+          names(normalizedOptions.name).fileName
+        }`
+      : `${normalizedOptions.npmScope}-${
+          names(normalizedOptions.name).fileName
+        }`
   });
 
   await formatFiles(tree);

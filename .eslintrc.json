@@ -14,7 +14,7 @@
             "depConstraints": [
               {
                 "sourceTag": "type:data-service",
-                "onlyDependOnLibsWithTags": ["type:model"]
+                "onlyDependOnLibsWithTags": ["type:model", "type:util"]
               },
               {
                 "sourceTag": "type:facade",
@@ -47,6 +47,36 @@
                   "type:util",
                   "type:service",
                   "type:dumb-component"
+                ]
+              },
+              {
+                "sourceTag": "type:pipe",
+                "onlyDependOnLibsWithTags": [
+                  "type:model",
+                  "type:util",
+                  "type:pipe",
+                  "type:service"
+                ]
+              },
+              {
+                "sourceTag": "type:directive",
+                "onlyDependOnLibsWithTags": [
+                  "type:model",
+                  "type:util",
+                  "type:pipe",
+                  "type:directive",
+                  "type:service"
+                ]
+              },
+              {
+                "sourceTag": "type:route",
+                "onlyDependOnLibsWithTags": [
+                  "type:route",
+                  "type:facades",
+                  "type:util",
+                  "type:model",
+                  "type:service",
+                  "type:smart-component"
                 ]
               }
             ]

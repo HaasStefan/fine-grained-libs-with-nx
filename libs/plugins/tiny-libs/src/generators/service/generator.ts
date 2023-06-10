@@ -26,6 +26,7 @@ export async function serviceGenerator(
     directory: normalizedOptions.directory,
     tags: normalizedOptions.parsedTags.join(','),
     skipModule: true,
+    buildable: true
   });
 
   addFiles(tree, normalizedOptions, __dirname);

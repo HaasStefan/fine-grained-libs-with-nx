@@ -15,7 +15,32 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-example/tiny-libs": ["libs/plugins/tiny-libs/src/index.ts"]
+      "@ng-example/people/data-services/people": [
+        "libs/people/data-services/people/src/index.ts"
+      ],
+      "@ng-example/people/dumb-components/table": [
+        "libs/people/dumb-components/table/src/index.ts"
+      ],
+      "@ng-example/people/routes/people": [
+        "libs/people/routes/people/src/index.ts"
+      ],
+      "@ng-example/people/smart-components/search": [
+        "libs/people/smart-components/search/src/index.ts"
+      ],
+      "@ng-example/shared/dumb-components/search": [
+        "libs/shared/dumb-components/search/src/index.ts"
+      ],
+      "@ng-example/shared/models/person": [
+        "libs/shared/models/person/src/index.ts"
+      ],
+      "@ng-example/shared/models/species": [
+        "libs/shared/models/species/src/index.ts"
+      ],
+      "@ng-example/shared/utils/base-url-token": [
+        "libs/shared/utils/base-url-token/src/index.ts"
+      ],
+      "@ng-example/tiny-libs": ["libs/plugins/tiny-libs/src/index.ts"],
+      "tiny-libs": ["libs/plugins/tiny-libs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
