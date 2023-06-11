@@ -31,11 +31,13 @@
               {
                 "sourceTag": "type:smart-component",
                 "onlyDependOnLibsWithTags": [
+                  "type:model",
                   "type:dumb-component",
                   "type:pipe",
                   "type:directive",
                   "type:service",
-                  "type:util"
+                  "type:util",
+                  "type:facade"
                 ]
               },
               {
@@ -72,11 +74,25 @@
                 "sourceTag": "type:route",
                 "onlyDependOnLibsWithTags": [
                   "type:route",
-                  "type:facades",
+                  "type:facade",
                   "type:util",
                   "type:model",
                   "type:service",
                   "type:smart-component"
+                ]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": [
+                  "type:route",
+                  "type:facade",
+                  "type:util",
+                  "type:model",
+                  "type:service",
+                  "type:smart-component",
+                  "type:pipe",
+                  "type:directive",
+                  "type:dumb-component"
                 ]
               }
             ]

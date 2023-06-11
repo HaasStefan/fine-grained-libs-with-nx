@@ -8,15 +8,8 @@ const initialState: Readonly<State> = {
   someProp: null,
 };
 
-type FactoryFn = () => Provider[];
-export const provide<%=className%>FacadeService = (
-  factory: FactoryFn = () => [<%=className%>FacadeService]
-): Provider[] => [
-  {
-    provide: <%=className%>FacadeService,
-    useFactory: () => factory(),
-  },
-];
+export const provide<%=className%>FacadeService = (): EnvironmentProviders =>
+  makeEnvironmentProviders([provide<%=className%>FacadeService]);
 
 @Injectable()
 export class <%=className%>FacadeService {

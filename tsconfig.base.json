@@ -1,7 +1,13 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
   "compilerOptions": {
     "rootDir": ".",
+    "strict": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -21,14 +27,20 @@
       "@ng-example/people/dumb-components/table": [
         "libs/people/dumb-components/table/src/index.ts"
       ],
+      "@ng-example/people/facades/people": [
+        "libs/people/facades/people/src/index.ts"
+      ],
       "@ng-example/people/routes/people": [
         "libs/people/routes/people/src/index.ts"
       ],
       "@ng-example/people/smart-components/search": [
         "libs/people/smart-components/search/src/index.ts"
       ],
-      "@ng-example/shared/dumb-components/search": [
-        "libs/shared/dumb-components/search/src/index.ts"
+      "@ng-example/shared/dumb-components/navbar": [
+        "libs/shared/dumb-components/navbar/src/index.ts"
+      ],
+      "@ng-example/shared/dumb-components/searchbar": [
+        "libs/shared/dumb-components/searchbar/src/index.ts"
       ],
       "@ng-example/shared/models/person": [
         "libs/shared/models/person/src/index.ts"
@@ -38,6 +50,9 @@
       ],
       "@ng-example/shared/utils/base-url-token": [
         "libs/shared/utils/base-url-token/src/index.ts"
+      ],
+      "@ng-example/shared/utils/primeng": [
+        "libs/shared/utils/primeng/src/index.ts"
       ],
       "@ng-example/tiny-libs": ["libs/plugins/tiny-libs/src/index.ts"],
       "tiny-libs": ["libs/plugins/tiny-libs/src/index.ts"]

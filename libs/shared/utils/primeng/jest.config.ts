@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'shared-dumb-components-search',
+  displayName: 'shared-utils-primeng',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../../coverage/libs/shared/dumb-components/search',
+  coverageDirectory: '../../../../coverage/libs/shared/utils/primeng',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1,1 +1,22 @@
-<p>Table works!</p>
+<p-table [value]="peopleSignal()" [rowHover]="true">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Gender</th>
+        <th>Hair Color</th>
+        <th>Skin Color</th>
+        <th>Eye Color</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-person>
+      <tr>
+        <td>{{ person.name }}</td>
+        <td>{{ person.height }}</td>
+        <td>{{ person.gender }}</td>
+        <td>{{ person.hair_color }}</td>
+        <td>{{ person.skin_color }}</td>
+        <td>{{ person.eye_color }}</td>
+      </tr>
+    </ng-template>
+  </p-table>

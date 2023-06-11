@@ -1,0 +1,13 @@
+<nav class="pt-1 mb-4">
+  <a
+    routerLink="/people"
+    routerLinkActive="/people"
+    #rl="routerLinkActive"
+    class="p-2 border-round-lg w-full hover:bg-primary-400 hover:text-white no-underline text-primary"
+    [ngClass]="
+      rl.isActive ? 'bg-primary-600 border border-primary-400 text-white' : ''
+    "
+    >People</a
+  >
+</nav>
+

@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "ng-example",
   "sourceRoot": "apps/star-wars/src",
-  "tags": [],
+  "tags": ["type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -19,7 +19,12 @@
           "apps/star-wars/src/favicon.ico",
           "apps/star-wars/src/assets"
         ],
-        "styles": ["apps/star-wars/src/styles.scss"],
+        "styles": [
+          "apps/star-wars/src/styles.scss",
+          "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+          "node_modules/primeng/resources/primeng.min.css",
+          "node_modules/primeflex/primeflex.css"
+        ],
         "scripts": []
       },
       "configurations": {
